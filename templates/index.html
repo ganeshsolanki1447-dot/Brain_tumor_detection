@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Brain Tumor Detection</h1>
+            <p>Upload an MRI brain scan for AI-powered tumor detection</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <i class="upload-icon">📤</i>
+                <p>Drag and drop MRI image here or click to browse</p>
+                <input type="file" id="fileInput" accept="image/*">
+            </div>
+
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <img id="imagePreview" alt="Preview">
+                <button id="analyzeBtn" class="btn-primary">Analyze Image</button>
+                <button id="clearBtn" class="btn-secondary">Clear</button>
+            </div>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>Analysis Results</h2>
+            <div class="result-card">
+                <h3 id="tumorType"></h3>
+                <p id="tumorDescription"></p>
+                <div class="confidence-meter">
+                    <div class="confidence-bar">
+                        <div id="confidenceBar" class="confidence-fill"></div>
+                    </div>
+                    <span id="confidenceText"></span>
+                </div>
+                <div class="tumor-details">
+                    <p><strong>Severity:</strong> <span id="severity"></span></p>
+                    <p><strong>Recommended Action:</strong> <span id="action"></span></p>
+                </div>
+            </div>
+
+            <div class="probabilities" id="probabilities"></div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing brain scan...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
